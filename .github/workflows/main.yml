@@ -25,13 +25,18 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run scraper
+        # 執行爬蟲 (請確保您的 scraper.py 已經改成會存到 data/ 資料夾的版本)
         run: python scraper.py
 
       - name: Commit and push if changed
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "action@github.com"
-          git add youbike_data.csv
+          
+          # 【關鍵修改在這裡】
+          # 改成加入 data 資料夾內的所有檔案 (包含新產生的日期檔案)
+          git add data/
+          
           # 只有當資料有變動時才 Commit，避免空 Commit 報錯
           git commit -m "Auto-update data: $(date -u)" || echo "No changes to commit"
           git push

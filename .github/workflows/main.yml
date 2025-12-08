@@ -1,8 +1,8 @@
 name: YouBike Data Scraper
 
 on:
-  schedule:
-    - cron: '*/10 * * * *'  # 設定：每 10 分鐘執行一次
+  #schedule:
+  #  - cron: '*/10 * * * *'  # 設定：每 10 分鐘執行一次
   workflow_dispatch:        # 設定：允許手動點擊按鈕執行 (方便測試)
 
 permissions:
